@@ -56,6 +56,14 @@ def get_evey_hour_milis(day_interval):
     milis.sort(reverse=False)
     return milis
 
+#毫秒时间戳转换为日期
+def timeStamp(timeNum):
+    timeStamp = float(timeNum / 1000)
+    timeArray = time.localtime(timeStamp)
+    otherStyleTime = time.strftime("%Y-%m-%d %H:%M:%S", timeArray)
+    return otherStyleTime
 
 ss=get_evey_hour_milis(3)
-print(ss)
+for line in ss:
+    time_t=timeStamp(line)
+    print (line,time_t)
